@@ -133,6 +133,7 @@ Download: [Google Drive](https://drive.google.com/drive/folders/1nZKTGHxoEC6jBfQ
 
 The application was tested on real handwritten formulas written by the author.
 
+| Input | Rendered LaTeX |
 |-------|---------------|
 | ![demo1](screenshots/demo1.png) | ![demo2](screenshots/demo2.png) |
 | ![demo3](screenshots/demo3.png) | ![demo4](screenshots/demo4.png) |
