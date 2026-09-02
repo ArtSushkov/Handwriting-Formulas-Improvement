@@ -144,7 +144,7 @@ def render_latex_to_image(latex_str: str, dpi=200) -> Image.Image:
             "text.usetex": True,
             "text.latex.preamble": r"\usepackage{amsmath,amssymb}",
         })
-        fig, ax = plt.subplots(figsize=(12, 5))
+        fig, ax = plt.subplots(figsize=(8, 2))
         ax.text(
             0.5, 0.5, latex_display,
             transform=ax.transAxes, fontsize=36,
@@ -162,10 +162,10 @@ def render_latex_to_image(latex_str: str, dpi=200) -> Image.Image:
 
     # Fallback: matplotlib mathtext (no external LaTeX needed)
     plt.rcParams.update({"text.usetex": False})
-    fig, ax = plt.subplots(figsize=(10, 2))
+    fig, ax = plt.subplots(figsize=(8, 2))
     ax.text(
         0.5, 0.5, latex_display,
-        transform=ax.transAxes, fontsize=22,
+        transform=ax.transAxes, fontsize=36,
         ha="center", va="center",
     )
     ax.axis("off")
@@ -213,7 +213,7 @@ if uploaded_file is not None:
 
     with col1:
         st.subheader("Input Image")
-        st.image(image, use_container_width=True)
+        st.image(image, width='stretch')
 
     # --- Run inference ---
     with st.spinner("Recognizing formula..."):
@@ -230,7 +230,7 @@ if uploaded_file is not None:
         st.subheader("Rendered LaTeX")
         try:
             rendered = render_latex_to_image(latex)
-            st.image(rendered, use_container_width=True)
+            st.image(rendered, width='stretch')
         except Exception as e:
             st.warning(f"LaTeX rendering failed: {e}")
             st.caption("The recognized text is shown above. Rendering requires valid LaTeX syntax.")
